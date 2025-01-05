@@ -1,0 +1,16 @@
+.menuContainer {
+  @apply absolute px-5 py-2 flex justify-center w-auto left-1/2 top-10 rounded-md shadow-lg bg-white;
+  border: 1px solid theme("colors.border1");
+  transform: translateX(-50%);
+  box-shadow: 0px 7px 14px rgba(0, 0, 0, 0.5),
+    0px 0px 0px 3.1px rgba(0, 0, 0, 0.08), 0px 0px 0.9px rgba(0, 0, 0, 0.06);
+}
+
+.iconWrapper {
+  @apply flex justify-between items-center space-x-5; /* Adding space between icons */
+  @apply w-full; /* Ensure wrapper takes the full width available */
+}
+
+.icon {
+  @apply text-gray-500 hover:text-blue-500 text-xl transition-colors duration-300;
+}
