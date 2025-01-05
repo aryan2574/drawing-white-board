@@ -7,8 +7,8 @@
 }
 
 .iconWrapper {
-  @apply flex justify-between items-center space-x-5; /* Adding space between icons */
-  @apply w-full; /* Ensure wrapper takes the full width available */
+  @apply flex justify-between items-center space-x-5;
+  @apply w-full;
 }
 
 .icon {

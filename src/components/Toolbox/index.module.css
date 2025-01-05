@@ -1,0 +1,40 @@
+.toolboxContainer {
+  @apply p-5 absolute top-1/4 left-5 w-64 rounded-lg shadow-lg bg-white border border-gray-200;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.toolItem {
+  @apply mb-6;
+
+  .toolText {
+    @apply text-sm font-semibold text-gray-700;
+  }
+
+  .itemContainer {
+    @apply mt-3 flex gap-2 items-center justify-start;
+
+    .colorBox {
+      @apply h-8 w-8 rounded-full cursor-pointer transition duration-300;
+
+      &:hover {
+        @apply transform scale-110 border-2 border-blue-500 shadow-xl;
+      }
+
+      &.active {
+        @apply border-2 border-blue-500 shadow-lg;
+      }
+    }
+  }
+
+  .brushSlider {
+    @apply w-full h-2 rounded-md bg-gray-200 appearance-none cursor-pointer transition duration-300;
+    &:focus {
+      outline: none;
+      border: 2px solid #2563eb;
+    }
+    &:hover {
+      background-color: #d1d5db;
+      box-shadow: theme("colors.shadow2");
+    }
+  }
+}
