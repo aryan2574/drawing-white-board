@@ -21,7 +21,7 @@
       }
 
       &.active {
-        @apply border-2 border-blue-500 shadow-lg;
+        @apply border-4 border-blue-500 shadow-xl transform scale-110 cursor-not-allowed;
       }
     }
   }
