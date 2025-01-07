@@ -28,7 +28,7 @@ const Toolbox = () => {
             {
                 showStrokeToolOption &&
                 <div className={styles.toolItem}>
-                    <h4 className={styles.toolText}>Stroke Color</h4>
+                    <h4 className={styles.toolText}>Stroke Color - {color}</h4>
                     <div className={styles.itemContainer}>
                         <div className={cx(styles.colorBox, { [styles.active]: color === COLORS.BLACK })} style={{ backgroundColor: COLORS.BLACK }} onClick={() => updateColor(COLORS.BLACK)}></div>
                         <div className={cx(styles.colorBox, { [styles.active]: color === COLORS.RED })} style={{ backgroundColor: COLORS.RED }} onClick={() => updateColor(COLORS.RED)}></div>
@@ -43,7 +43,7 @@ const Toolbox = () => {
             {
                 showBrushToolOption &&
                 <div className={styles.toolItem}>
-                    <h4 className={styles.toolText}>Brush Size {activeMenuItem}</h4>
+                    <h4 className={styles.toolText}>Brush Size - {size}</h4>
                     <div className={styles.itemContainer}>
                         <input
                             type="range"
