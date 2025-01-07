@@ -18,6 +18,18 @@ const io = new Server(httpServer, {
 
 io.on("connection", (socket) => {
     console.log("A user connected");
+
+    socket.on("beginPath", (path) => {
+        socket.broadcast.emit("beginPath", path);
+    });
+
+    socket.on("drawLine", (path) => {
+        socket.broadcast.emit("drawLine", path);
+    });
+
+    socket.on("changeConfig", (arg) => {
+        socket.broadcast.emit("changeConfig", arg);
+    });
 });
 
 httpServer.listen(5000);
