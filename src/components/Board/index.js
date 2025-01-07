@@ -3,6 +3,8 @@ import { useSelector, useDispatch } from "react-redux";
 import { MENU_ITEMS } from "@/constants";
 import { actionItemClick } from "@/slice/menuSlice";
 
+import { socket } from "@/socket";
+
 const Board = () => {
     const dispatch = useDispatch();
     const canvasRef = useRef(null);
@@ -89,6 +91,10 @@ const Board = () => {
         canvas.addEventListener("mousedown", handleMouseDown);
         canvas.addEventListener("mousemove", handleMouseMove);
         canvas.addEventListener("mouseup", handleMouseUp);
+
+        socket.on("connect", () => {
+            console.log("connect", socket.id);
+        });
 
         return () => {
             canvas.removeEventListener("mousedown", handleMouseDown);
