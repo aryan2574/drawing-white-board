@@ -1,5 +1,5 @@
-import { useEffect, useRef } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import { useEffect, useRef, useLayoutEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Board = () => {
     const canvasRef = useRef(null);
@@ -8,28 +8,35 @@ const Board = () => {
     const activeMenuItem = useSelector((state) => state.menu.activeMenuItem);
     const { color, size } = useSelector((state) => state.toolbox[activeMenuItem]);
 
-    useEffect(() => {
+    useLayoutEffect(() => {
         if (!canvasRef.current) return;
 
         const canvas = canvasRef.current;
         const ctx = canvas.getContext("2d");
 
-
         canvas.width = window.innerWidth;
         canvas.height = window.innerHeight;
+
+        const beginPath = (x, y) => {
+            ctx.beginPath();
+            ctx.moveTo(x, y);
+        }
+
+        const drawLine = (x, y) => {
+            ctx.lineTo(x, y);
+            ctx.stroke();
+        }
 
         const handleMouseDown = (e) => {
             shouldDraw.current = true;
 
-            ctx.beginPath();
-            ctx.moveTo(e.clientX, e.clientY);
+            beginPath(e.clientX, e.clientY);
         }
 
         const handleMouseMove = (e) => {
             if (!shouldDraw.current) return;
 
-            ctx.lineTo(e.clientX, e.clientY);
-            ctx.stroke();
+            drawLine(e.clientX, e.clientY);
         }
 
         const handleMouseUp = () => {
